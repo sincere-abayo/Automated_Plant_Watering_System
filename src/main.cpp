@@ -64,8 +64,10 @@ void loop() {
     }
 
     int moisture = analogRead(AOUT_PIN); // Read soil moisture
+    
     Serial.print("\nMoisture Level: ");
     Serial.println(moisture);
+    
 
     // Control water pump based on soil moisture
     if (moisture < 400) { 
@@ -98,5 +100,5 @@ void loop() {
     }
     http.end();
 
-    delay(5000); // Delay before next reading
+    delay(15000); // Delay before next reading
 }

@@ -80,6 +80,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Moisture Level</th>
+                                        <th>Moisture Level %</th>
                                         <th>Timestamp</th>
                                     </tr>
                                 </thead>
@@ -87,7 +88,8 @@
                                     {% for reading in readings %}
                                     <tr class="moisture-card">
                                         <td>{{ reading[0] }}</td>
-                                        <td>{{ reading[1] }}%</td>
+                                        <td>{{ reading[1]}}</td>
+                                        <td>{{ (reading[1]|float  / 1023.0 * 100)|round(1) }}%</td>
                                         <td>{{ reading[2] }}</td>
                                     </tr>
                                     {% endfor %}
