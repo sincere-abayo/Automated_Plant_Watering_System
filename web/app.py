@@ -9,7 +9,7 @@ app = Flask(__name__)
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="root",
+    password="",
     database="plant_system",
     charset="utf8mb4",
     collation="utf8mb4_general_ci"
@@ -73,7 +73,7 @@ def save_data():
 
 @app.route('/get_data', methods=['GET'])
 def get_data():
-    cursor.execute("SELECT * FROM moisture_data ORDER BY timestamp DESC LIMIT 10")
+    cursor.execute("SELECT * FROM moisture_data ORDER BY timestamp DESC LIMIT 40")
     data = cursor.fetchall()
     return jsonify(data)
 
